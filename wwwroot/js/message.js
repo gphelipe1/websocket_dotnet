@@ -1,11 +1,7 @@
 "use strict";
 
-var url_to_connect = "/messages";
-
-url_to_connect.addEventListener()
-
 var connection = new signalR.HubConnectionBuilder()
-    .withUrl(url_to_connect)
+    .withUrl("/messages")
     .build();
 
 connection.on("ReceiveMessage", function(message) {
@@ -20,7 +16,6 @@ connection.on("UserConnected", function(connectionId) {
     var option = document.createElement("option");
     option.text = connectionId;
     option.value = connectionId;
-
     groupElement.add(option);
 });
 

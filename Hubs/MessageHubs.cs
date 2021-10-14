@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace websocket_test
 {
@@ -18,7 +19,7 @@ namespace websocket_test
 
         public Task SendMessageToUser(string connectionId, string message)
         {
-            return Clients.Client(connectionId).SendAsync("ReceiveMessage",message);
+            return Clients.Client(connectionId).SendAsync("ReceiveMessage", message);
         }
 
         public override async Task OnConnectedAsync()
